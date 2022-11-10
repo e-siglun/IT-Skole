@@ -1,0 +1,25 @@
+<script>
+    var EnglishInput = ""
+    var EnglishOutput = ""
+
+    function TranslateToPigLatin() {
+        var ReturnStr = ""
+        var SplitStr = EnglishInput.split(" ")
+
+        //Loops through SplitStr, which is every word in the string 'EnglishInput'
+		for (let Index = 0; SplitStr.length > Index; Index = Index + 1) {
+            let FullString = SplitStr[Index]
+            let FirstLetter = FullString[0]
+
+            ReturnStr = ReturnStr + " " + FullString.slice(1, FullString.length) + FirstLetter + "ay"
+        }
+
+        EnglishOutput = ReturnStr
+    }
+</script>
+
+<h1>English:</h1>
+<input bind:value={EnglishInput} on:change={TranslateToPigLatin}>
+
+<h1>Output:</h1>
+<p>{EnglishOutput}</p>

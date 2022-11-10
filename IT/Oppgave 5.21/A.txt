@@ -1,0 +1,2 @@
+En boolsk verdi er enten 1, 0 / True, False.
+Et boolsk uttrykk betyr at resultate av et utrykk blir en boolean (1, 0, True, False).

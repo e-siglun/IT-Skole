@@ -1,0 +1,13 @@
+<script>
+    var Height = 1
+		
+    function onInput() {
+        if (Height > 3) {
+            alert("NB! Du kan ikke skrive inn en høyde høyere enn 3 meter; kontakt Guinness rekordbok dersom du trenger mer.")
+            Height = 0
+        }   
+    }
+</script>
+
+<input bind:value={Height} on:input={onInput}>  Berkeft høyden din!
+<p>Dauymn, du er {Height}m høy! That's crazy.</p>

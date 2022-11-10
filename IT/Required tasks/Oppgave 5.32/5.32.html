@@ -1,0 +1,29 @@
+<script>
+    var Gass = 0
+    var GassPerMile = 0
+    var TripDistance = 0
+
+    function ButtonActivated() {
+		let GassLeft = parseInt(Gass - (TripDistance * GassPerMile))
+        
+        if (GassLeft) {
+            document.getElementById("Feedback").innerHTML = "Du kommer til å ha " + GassLeft + "L drivstoff igjen etter turen din."
+        }
+    }
+</script>
+
+
+<h1>Drivstoff kalkulator:</h1>
+
+<p>Hvor mye bensin har du i tanken?</p>
+<input type="number" bind:value={Gass}>Liter
+
+<p>Hvor stort er bensinforbruket ditt?</p>
+<input type="number" bind:value={GassPerMile}>Liter/Mil
+
+<p>Hvor lang er kjøreturen din?</p>
+<input type="number" bind:value={TripDistance}>Mil
+
+<br><br>
+<button on:click={ButtonActivated}>Kalkuler hvor mye benis du vil ha igjen etter turen.</button>
+<p id="Feedback"></p>

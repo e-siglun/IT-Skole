@@ -1,0 +1,36 @@
+<script>
+    var Planets = [
+        {text: "Earth", g:9.81},
+        {text: "Mars", g:3.721},
+        {text: "Jupiter", g:24.79},
+        {text: "Saturn", g:10.44},
+        {text: "Uranus", g:8.87}
+    ]
+
+    var Mass = 0
+    var SelectedPlanet = Planets[0] //Init the selected planet as Earth so the visuals line up with the backend
+
+    function CalculateGravity() {
+        let Gravity = parseInt(Mass * SelectedPlanet.g) //Mass times the gravity acceleration (N. second law)
+
+        if (Gravity) {
+            document.getElementById("Feedback").innerHTML = Gravity + "N."
+        }
+    }
+</script>
+
+<h1>Tyngde-akselerasjon på en fremmed planet</h1>
+
+<label for="mass of object">Massen til et objekt:</label>
+<input type="number" bind:value={Mass} on:input={CalculateGravity}>kg
+<br>
+<label for="which planet is object on">Hvilken planet er objektet på?</label>
+<select bind:value={SelectedPlanet} on:change={CalculateGravity}>
+    {#each Planets as Planet}
+        <option value={Planet}>
+            {Planet.text}
+        </option>
+    {/each}
+</select>
+
+<p id="Feedback"></p>

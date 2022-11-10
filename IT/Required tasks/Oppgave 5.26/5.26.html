@@ -1,0 +1,50 @@
+<script>
+    var CorrectPinCode = 1234
+    var UserInputPinCode = 0
+    
+    var UserMaxWithdraw = 2000
+    var WithdrawAmount = 0
+
+    function CheckPinCode() {
+        let Feedback = document.getElementById("Feedback")
+
+        //If pin code is not correct
+        if (UserInputPinCode != CorrectPinCode) {
+            Feedback.innerHTML = "Feilmelding! Pin koden er ikke riktig."
+            Feedback.style.color = "red"
+            return false
+        } else {
+            Feedback.innerHTML = "Pin koden er riktig."
+            Feedback.style.color = "green"
+            return true
+        }
+    }
+
+    function CanWithdrawAmount() {
+        let Feedback = document.getElementById("Feedback")
+
+        //If pin code is not correct, return
+        if (!CheckPinCode()) {
+            return
+        }
+
+        //If user account does not have more or equal to the amount the user has requested to be withdrawn
+        if (WithdrawAmount >= UserMaxWithdraw) {
+            Feedback.innerHTML = "Ikke nokk penger i konto."
+            Feedback.style.color = "red"
+        } else {
+            Feedback.innerHTML = "Wooho! " + WithdrawAmount + "kr har bitt fjernet fra kontoen din! :]"
+            Feedback.style.color = "green"
+        }
+    }
+</script>
+
+<h1>Bank lol</h1>
+
+<h3>Pinn kode:</h3>
+<input type="number" bind:value={UserInputPinCode} on:change={CheckPinCode}>
+
+<h3>Ta ut penger:</h3>
+<input type="number" bind:value={WithdrawAmount} on:change={CanWithdrawAmount}>
+
+<p id="Feedback"></p>

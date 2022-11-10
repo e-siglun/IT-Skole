@@ -1,0 +1,27 @@
+<script>
+    var WalksLikeDuck = false
+    var Quacks = false
+
+    //Handling functions. Upading the variables
+    function CheckIfIsDuck() {
+        if (WalksLikeDuck && Quacks) {
+            alert("Dette er en and")
+        }
+    }
+
+    //Updating the variables, and also changing the background style of the button to symbolize if the duck is quacking / walking
+    function UpdateWalks(Self) {
+        WalksLikeDuck = !WalksLikeDuck
+        console.log(Self)
+        document.getElementById("Walk").style.backgroundColor = WalksLikeDuck && "yellowgreen" ||  "red"
+        CheckIfIsDuck()
+    }
+    function UpdateQuacked() {
+        Quacks = !Quacks
+        document.getElementById("Quack").style.backgroundColor = Quacks && "yellowgreen" || "red"
+        CheckIfIsDuck()
+    }
+</script>
+
+<button id="Walk" on:click={UpdateWalks} style="background-color: white;">Does it walk like a duck?</button>
+<button id="Quack" on:click={UpdateQuacked} style="background-color: white;">Does it quack like a duck?</button>

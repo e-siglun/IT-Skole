@@ -1,0 +1,29 @@
+<script>
+    var AtomNummer = 1
+	var CurElement = "?"
+		
+    var PeriodicElementDict = {
+        1: "Hydrogen",
+        2: "w",
+        3: "w",
+        4: "w",
+        5: "w"
+    }
+
+    function onInput() {
+        var FeebackP = document.getElementById("Feedback")
+        console.log(FeedbackP)
+        if (PeriodicElementDict[AtomNummer]) {
+            CurElement = PeriodicElementDict[AtomNummer]
+        } else {
+            CurElement = "?"
+            FeedbackP.innerHTML = "Element not found."
+            FeedbackP.style.color = "red"
+        }
+    }
+</script>
+
+<label>Atomnummer 1-5</label>
+<input bind:value={AtomNummer} on:input={onInput}>
+<p class="Element" style="color: black;">Element: {CurElement}</p>
+<p class="Element" id="Feedback" style="color: black;"></p>

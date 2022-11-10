@@ -1,0 +1,31 @@
+<script>
+    var CalculationDict = {
+        Add_Num0: 0, //Addisjon
+        Add_Num1: 0, //Adisjon
+
+        Sub_Num0: 0, //Subtraksjon
+        Sub_Num1: 0, //Subtraksjon
+
+        Mul_Num0: 0, //Multiplikasjon
+        Mul_Num1: 0, //Multiplikasjon
+
+        Dev_Num0: 0, //Deling
+        Dev_Num1: 0, //Deling
+    }
+</script>
+
+<h1>Addisjon:</h1>
+<input type="number" bind:value={CalculationDict.Add_Num0}> +
+<input type="number" bind:value={CalculationDict.Add_Num1}> = {CalculationDict.Add_Num0 + CalculationDict.Add_Num1}
+
+<h1>Subtraksjon:</h1>
+<input type="number" bind:value={CalculationDict.Sub_Num0}> -
+<input type="number" bind:value={CalculationDict.Sub_Num1}> = {CalculationDict.Sub_Num0 - CalculationDict.Sub_Num1}
+
+<h1>Multiplikasjon:</h1>
+<input type="number" bind:value={CalculationDict.Mul_Num0}> *
+<input type="number" bind:value={CalculationDict.Mul_Num1}> = {CalculationDict.Mul_Num0 * CalculationDict.Mul_Num1}
+
+<h1>Deling:</h1>
+<input type="number" bind:value={CalculationDict.Dev_Num0}> /
+<input type="number" bind:value={CalculationDict.Dev_Num1}> = {(CalculationDict.Dev_Num0 - CalculationDict.Dev_Num1).toFixed(2)}
